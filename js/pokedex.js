@@ -7,9 +7,8 @@ pokeApp.config(['$resourceProvider', function($resourceProvider) {
     $resourceProvider.defaults.stripTrailingSlashes = false;
 }]);
 
-pokeApp.controller('pickerController', data);
-function data($scope){
-    $Scope.list = [{
+pokeApp.controller('pickerController', function data($scope){
+    $scope.list = [{
 	"id": "1",
 	"name": "Golbutoquet"
 }, {
@@ -18,6 +17,4 @@ function data($scope){
 }, {
 	"id": "3",
 	"name": "Théovaselinator"
-}];
-
-}
+}];});
