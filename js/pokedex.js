@@ -4,17 +4,17 @@ var pokeApp = angular.module('pokedex', ['ngResource']);
 pokeApp.constant('POKEAPI', 'http://pokeapi.co');
 
 pokeApp.config(['$resourceProvider', function($resourceProvider) {
-    $resourceProvider.defaults.stripTrailingSlashes = false;
-}]);
+        $resourceProvider.defaults.stripTrailingSlashes = false;
+    }]);
 
 pokeApp.controller('pickerController', function data($scope){
     $scope.list = [{
-	"id": "1",
-	"name": "Golbutoquet"
-}, {
-	"id": "2",
-	"name": "Mamandikchuinormal"
-}, {
-	"id": "3",
-	"name": "Théovaselinator"
-}];});
+            "id": "1",
+            "name": "Golbutoquet"
+        }, {
+            "id": "2",
+            "name": "Mamandikchuinormal"
+        }, {
+            "id": "3",
+            "name": "Théovaselinator"
+        }];});
