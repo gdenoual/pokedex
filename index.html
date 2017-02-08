@@ -20,23 +20,9 @@
 		<div class="form-group" ng-controller="pickerController">
 		
 		
-		ID<input class="form-control" type="text" name="pokemonID" min="0" ng-model="pokemon.id" /><br />
+		ID<input class="form-control" type="text" name="pokemonID" min="0" ng-model="id" /><br />
+                {{id}}
 		
-		Nom<input  class="form-control"type="text"  name="pokemon.name" ng-model="pokemon.name"><br />
-		
-		
-		
-		Pokemon    <select ng-repeat="pokemon.list" name="pokemon.list" class="selectpicker form-control">
-				
-					<option value="{{pokemon.list}}">{{pokemon.list}}</option>
-					
-					</select>
-										
-										<br />
-		
-		
-		
-		<input type="button" class="btn btn-primary" value="GET" />
 		</div>
 
 		<!-- Pokémon information -->
