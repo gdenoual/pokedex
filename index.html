@@ -10,10 +10,34 @@
 <body ng-app="pokedex">
 
 	<div class="container">
-		<h1>Pokésir</h1>
+		<h1>Pokédex</h1>
 
+		
+		<!-- pickerController-->
+		
+		
 		<!-- Search -->
-		<div></div>
+		<div class="form-group" ng-controller="pickerController">
+		
+		
+		ID<input class="form-control" type="text" name="pokemonID" min="0" ng-model="pokemon.id" /><br />
+		
+		Nom<input  class="form-control"type="text"  name="pokemon.name" ng-model="pokemon.name"><br />
+		
+		
+		
+		Pokemon    <select ng-repeat="pokemon.list" name="pokemon.list" class="selectpicker form-control">
+				
+					<option value="{{pokemon.list}}">{{pokemon.list}}</option>
+					
+					</select>
+										
+										<br />
+		
+		
+		
+		<input type="button" class="btn btn-primary" value="GET" />
+		</div>
 
 		<!-- Pokémon information -->
 		<div></div>
