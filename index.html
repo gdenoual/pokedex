@@ -24,16 +24,19 @@
                 
                 Pokemon
                 <select  name="pokemonList" class="selectpicker form-control" ng-model="pokemonPicker">
-                    <option value="Pokémons" ng-repeat="pokemon in list"> {{pokemon.name | filter:name}} </option>
+                    <option value="Pokémons" ng-repeat="pokemon in list |filter:id|filter:name"> {{pokemon.name}} </option>
                 </select>
                 
                 <br />
                 
                 <input type="button" class="btn btn-primary" value="Go!" />
             </div>
+            </div>
             
             <!-- Pokémon information -->
-            <div></div>
+            <div>
+
+            </div>
             
         </div>
         
