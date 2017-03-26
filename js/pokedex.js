@@ -4,57 +4,40 @@ var pokeApp = angular.module('pokedex', ['ngResource']);
 pokeApp.constant('POKEAPI', 'http://pokeapi.co');
 
 pokeApp.config(['$resourceProvider', function($resourceProvider) {
-        $resourceProvider.defaults.stripTrailingSlashes = false;
-    }]);
-
-pokeApp.controller('pickerController', function data($scope, $http){
-   /* $scope.list = [{
-            "id": "1",
-            "name": "Golbutoquet"
-        }, {
-            "id": "2",
-            "name": "Mamandikchuinormal"
-        }, {
-            "id": "3",
-            "name": "Théovaselinator"
-        }
-        , {
-            "id": "4",
-            "name": "Pikachu"
-        },
-*/
-      // $scope.$SearchData = $log,
-    // $scope.name
+    $resourceProvider.defaults.stripTrailingSlashes = false;
+}]);
 
 
-    $scope.clickMe = function () {
+//pokeApp.factory
+//	return $ressource
+
+//pokeApp.service // singeltoin id, nom , abyulities , controleur , appeler ressource acceder ala ressourice ,recup avec id , syntaxe ressource.get, service est un pokemon , setId setMembre = a �a etc , et se sont les skills
+pokeApp.controller('pickerController', function data($scope, $http) {
+
+    $http.get("http://pokeapi.co/api/v2/pokemon/?limit=811").then(function(response) {
+        $scope.abc = response.data.results
+    });
 
 
-        if ($scope.name != "") {
+    $scope.kickMe = function($name) {
 
+        $scope.name = $name;
+        $http.get("http://pokeapi.co/api/v2/pokemon/" + $name + "/")
+            .then(function(response) {
+                console.log(response.data.id)
+                $scope.id = response.data.id
+            })
+    };
+
+    $scope.clickMe = function() {
         $http.get("http://pokeapi.co/api/v2/pokemon/" + $scope.name + "/")
-            .then(function (response) {
+            .then(function(response) {
+
                 $scope.myWelcome = response.data.name
                 $scope.numeroPokemon = response.data.id
-
-
-            });
-
-    }
-    else {
-        $http.get("http://pokeapi.co/api/v2/pokemon/" + $scope.id + "/")
-            .then(function (response) {
-                $scope.myWelcome = response.data.name
-                $scope.numeroPokemon = response.data.id
+				$scope.toto = "son/("+response.data.id+").ogg"
             });
     }
+	
 
-
-
-
-
-      //  var PokemonAfficheToi = $resource('http://pokeapi.co/api/v2/pokemon/' + $scope.$affiche)
-
-    }});
-
-
+});

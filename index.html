@@ -1,64 +1,55 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
-    <head lang="en">
-        <meta charset="UTF-8">
-        <title></title>
 
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+</head>
 
-    </head>
-    <body ng-app="pokedex">
-
-        <div class="container">
-            <h1>Pokédex</h1>
-
-            <!-- Search -->
-            <div class="form-group" ng-controller="pickerController">
-
-
-                ID
-                <input class="form-control" type="text" name="pokemonID"  ng-model="id" /><br />
-
-                Nom
-                <input  class="form-control" type="text"  name="pokemonName" ng-model="name" ><br />
-
-               <!-- Pokemon
-                <select  name="pokemonList" class="selectpicker form-control" ng-model="pokemonPicker">
-                    <option value="Pokémons">{{myWelcome}}</option>
-                </select>-->
-                <!--ng-repeat="pokemon in list |filter:name"-->
-                <br />
-
-                <input type="button" class="btn btn-primary" value="Go!" ng-click="clickMe()" />
-                <h1>Nom du pokemon : {{myWelcome}}</h1>
-                <h1>Identifiant Pokémon : {{numeroPokemon}}</h1>
-                <h1>Image Pokemon : <img src="https://img.pokemondb.net/artwork/{{myWelcome}}.jpg"></h1>
-
-            </div>
-
-
-
-
-
-            </div>
-
-            <!-- Pokémon information -->
-            <div>
-
-
-
-
-
+<body ng-app="pokedex">
+    <div class="container">
+        <h1>Pokédex</h1>
+        <!-- Search -->
+        <div class="form-group" ng-controller="pickerController">
+            ID
+            <input class="form-control" type="text" name="pokemonID" ng-model="id" value="{{pokemon.id}}" />
+            <br /> Nom
+            <input class="form-control" type="text" name="pokemonName" ng-model="name" value="{{pokemon.name}}" />
+            <br /> Pokemon
+            <select name="pokemonList" class="selectpicker form-control">
+                <option ng-repeat="pokemon in abc | filter:name | filter:id" ng-click="kickMe(pokemon.name)" value="{{pokemon.name}}">{{pokemon.name }}</option>
+            </select>
+            <br />
+            <input type="button" class="btn btn-primary" value="Go!" ng-click="clickMe()" />
+            <h1>Nom du pokemon : {{myWelcome}}</h1>
+            <h1>Identifiant Pokémon : {{numeroPokemon}}</h1>
+			
+			<audio  autoplay="false" id="beep" src="{{toto}}" ></audio>
+			
+            <h1>Image Pokemon : <img src="https://img.pokemondb.net/artwork/{{myWelcome}}.jpg" onclick="JouerSon()"></h1>
+			
+			<input type="button" class="btn btn-primary" value="Son pokeMon" onclick="JouerSon()" />
         </div>
+    </div>
+    <!-- Pokémon information -->
+    <div>
 
-        <!-- Dependencies -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/angular.min.js"></script>
-        <script src="js/angular-resource.min.js"></script>
+    </div>
+    <!-- Dependencies -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-resource.min.js"></script>
+    <!-- Pokedex app -->
+    <script src="js/pokedex.js"></script>
+	    <script>
+    function JouerSon() {
+            var sound = document.getElementById("beep");
+			
+            sound.play();
+        }
+</script>
+</body>
 
-        <!-- Pokedex app -->
-        <script src="js/pokedex.js"></script>
-
-    </body>
 </html>
